@@ -13,3 +13,9 @@ type Book = {
   stripeId: string;
   price: any;
 };
+
+type CartItem = {
+  id: string;
+  quantity: number;
+  product: Book;
+};
