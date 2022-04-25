@@ -87,6 +87,17 @@ const Home: NextPage<Props> = ({ books }) => {
     }
   };
 
+  const unsubscription = async () => {
+    try {
+      const response = await fetch('/api/cancel-subscription', {
+        method: 'POST',
+      });
+      console.log('session', response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <h2 className='text-xl'>商品一覧</h2>
@@ -101,6 +112,12 @@ const Home: NextPage<Props> = ({ books }) => {
         onClick={subscription}
       >
         定期購読はこちら
+      </button>
+      <button
+        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+        onClick={unsubscription}
+      >
+        退会はこちら
       </button>
     </div>
   );
